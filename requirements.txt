@@ -1,0 +1,8 @@
+pandas
+hydralit
+numpy
+streamlit==1.7.0
+plotly
+dropbox
+click==8
+boto3
