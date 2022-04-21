@@ -190,7 +190,7 @@ def MonthlyTROPOMINO2():
     year_input = col01.selectbox('Select Year:', years, key='year_input', index=default)
     if year_input:
         months = ['January','February','March','April','May','June','July','August','September','October','November','December']
-        default = months.index((datetime.datetime.now() - datetime.timedelta(days=20)).strftime("%B"))
+        default = months.index((datetime.datetime.now() - datetime.timedelta(days=41)).strftime("%B"))
         month_input = col01.selectbox('Select Month:', months, key='month_input', index=default)
         if month_input:
             col11, col12, col13 = my_expander2.columns([3,8,3])
