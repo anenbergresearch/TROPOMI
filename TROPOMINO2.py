@@ -8,6 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from streamlit.elements import layouts
 import hydralit as hy
+from pytz import timezone
 import boto3
 
 s3 = boto3.resource(
@@ -67,7 +68,7 @@ def DailyTROPOMINO2():
         col11.markdown("")
         col13.markdown("")
         col13.markdown("")
-        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 16, 30):
+        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 20, 30):
             current = datetime.date.today()
         else:
             current = datetime.date.today() - datetime.timedelta(days=1)
