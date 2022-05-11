@@ -68,7 +68,7 @@ def DailyTROPOMINO2():
         col11.markdown("")
         col13.markdown("")
         col13.markdown("")
-        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 20, 30):
+        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
             current = datetime.date.today()
         else:
             current = datetime.date.today() - datetime.timedelta(days=1)
@@ -85,7 +85,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 16, 30):
+        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
             current = datetime.date.today()
         else:
             current = datetime.date.today() - datetime.timedelta(days=1)
@@ -103,7 +103,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 16, 30):
+        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
             current = datetime.date.today()
         else:
             current = datetime.date.today() - datetime.timedelta(days=1)
@@ -121,7 +121,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 16, 30):
+        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
             current = datetime.date.today()
         else:
             current = datetime.date.today() - datetime.timedelta(days=1)
@@ -138,7 +138,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 16, 30):
+        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
             current = datetime.date.today()
         else:
             current = datetime.date.today() - datetime.timedelta(days=1)
@@ -155,7 +155,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 16, 30):
+        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
             current = datetime.date.today()
         else:
             current = datetime.date.today() - datetime.timedelta(days=1)
@@ -172,7 +172,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime(2022, 5, 10, 16, 30):
+        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
             current = datetime.date.today()
         else:
             current = datetime.date.today() - datetime.timedelta(days=1)
