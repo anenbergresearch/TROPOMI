@@ -277,7 +277,7 @@ def DailyTROPOMINO2():
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
             images = [img_t, img_b]
-            col12.image(images, width = 730, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
+            col12.image(images, width = 700, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
 
     elif (seasonal_input=='Summer'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -303,7 +303,7 @@ def DailyTROPOMINO2():
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
             images = [img_t, img_b]
-            col12.image(images, width = 730, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
+            col12.image(images, width = 700, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
 
     elif (seasonal_input=='Spring'):
         col11, col12, col13 = my_expander1.columns([3,7,3])
@@ -329,7 +329,7 @@ def DailyTROPOMINO2():
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
             images = [img_t, img_b]
-            col12.image(images, width = 730, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
+            col12.image(images, width = 700, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
 
     elif (seasonal_input=='Fall'):
         col11, col12, col13 = my_expander1.columns([3,8,3])
@@ -355,7 +355,7 @@ def DailyTROPOMINO2():
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
             images = [img_t, img_b]
-            col12.image(images, width = 730, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
+            col12.image(images, width = 700, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
 
     #col12.markdown("<ul style='text-align: center'>'p' on the image represents one of the top 50 largest NOx-emitting power plants.", unsafe_allow_html=True)
     #col12.text("")
