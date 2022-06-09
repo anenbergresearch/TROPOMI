@@ -5,4 +5,4 @@ streamlit==1.7.0
 plotly
 dropbox
 click==8
-boto3
+boto3==1.22.13
