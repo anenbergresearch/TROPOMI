@@ -1,4 +1,5 @@
 from operator import index
+from pickle import TRUE
 from tkinter.tix import AUTO
 from turtle import width
 import pandas as pd
@@ -55,6 +56,21 @@ app = hy.HydraApp(title='TROPOMINO2',
         navbar_theme=over_theme
     )
 
+
+##########################################################################################################################
+
+@app.addapp(is_home=True)
+def home():
+    my_expander1 = st.expander('Description', expanded=True)  
+    col1, col2, col3 = my_expander1.columns([1,7,1])
+    #col2.markdown("<h3 style='text-align: left; font-weight: bold '>Description:</h1>", unsafe_allow_html=True)
+    col2.markdown("<p style='text-align: justify;'>This website provides NO2 concetrations all around the United States of America. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 5 hours after the measurement. Please visit our <b>Daily TROPOMI NO2</b> and <b>Seasonal TROPOMI NO2</b> pages for specific TROPOMI concentrations.</p>", unsafe_allow_html=True)
+
+            
+    col2.text("")
+    col2.text("")
+
+    col2.image('./TROPOMI_homepage.png', use_column_width = True)
 
 ##########################################################################################################################
 
