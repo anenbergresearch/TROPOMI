@@ -312,7 +312,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
 
         year_input = col12.selectbox('Select Year:', ['2018', '2019', '2020', '2021'], key='year_input')
-        if year_input in ['2018', '2019', '2020']:
+        if year_input in ['2018', '2019']:
             object = bucket.Object(f"seasonal/JJA_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
@@ -344,7 +344,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
 
         year_input = col12.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
-        if year_input in ['2019', '2020']:
+        if year_input in ['2019']:
             object = bucket.Object(f"seasonal/MAM_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
@@ -376,7 +376,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
 
         year_input = col12.selectbox('Select Year:', ['2018', '2019', '2020', '2021'], key='year_input')
-        if year_input in ['2018', '2019', '2020']:
+        if year_input in ['2018', '2019']:
             object = bucket.Object(f"seasonal/SON_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
