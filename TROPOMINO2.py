@@ -287,7 +287,7 @@ def DailyTROPOMINO2():
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}")
         
         else:
-            col14, col15, col16, col17 = my_expander1.columns([3,5,5,3])
+            col14, col15, col16, col17 = my_expander1.columns([3,5.5,5.5,3])
             col14.markdown("")
             col14.markdown("")
             col17.markdown("")
@@ -319,7 +319,7 @@ def DailyTROPOMINO2():
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Jun-Aug) {year_input}")
         else:
-            col14, col15, col16, col17 = my_expander1.columns([3,5,5,3])
+            col14, col15, col16, col17 = my_expander1.columns([3,5.5,5.5,3])
             col14.markdown("")
             col14.markdown("")
             col17.markdown("")
@@ -337,7 +337,7 @@ def DailyTROPOMINO2():
             col16.image(img_b, use_column_width= True, caption=f"JJA_{year_input}_vs_baseline_TROPOMI_diff.png")
 
     elif (seasonal_input=='Spring'):
-        col11, col12, col13 = my_expander1.columns([3,7,3])
+        col11, col12, col13 = my_expander1.columns([3,10,3])
         col11.markdown("")
         col11.markdown("")
         col13.markdown("")
@@ -351,7 +351,7 @@ def DailyTROPOMINO2():
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Mar-May) {year_input}")
         else:
-            col14, col15, col16, col17 = my_expander1.columns([3,5,5,3])
+            col14, col15, col16, col17 = my_expander1.columns([3,5.5,5.5,3])
             col14.markdown("")
             col14.markdown("")
             col17.markdown("")
@@ -369,7 +369,7 @@ def DailyTROPOMINO2():
             col16.image(img_b, use_column_width= True, caption=f"MAM_{year_input}_vs_baseline_TROPOMI_diff.png")
 
     elif (seasonal_input=='Fall'):
-        col11, col12, col13 = my_expander1.columns([3,8,3])
+        col11, col12, col13 = my_expander1.columns([3,10,3])
         col11.markdown("")
         col11.markdown("")
         col13.markdown("")
@@ -383,7 +383,7 @@ def DailyTROPOMINO2():
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Sep-Nov) {year_input}")
         else:
-            col14, col15, col16, col17 = my_expander1.columns([3,5,5,3])
+            col14, col15, col16, col17 = my_expander1.columns([3,5.5,5.5,3])
             col14.markdown("")
             col14.markdown("")
             col17.markdown("")
