@@ -343,13 +343,8 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-<<<<<<< HEAD
-        year_input = col12.selectbox('Select Year:', ['2019', '2020', '2021'], key='year_input')
-        if year_input in ['2019', '2020']:
-=======
         year_input = col12.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
         if year_input in ['2019']:
->>>>>>> test
             object = bucket.Object(f"seasonal/MAM_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
