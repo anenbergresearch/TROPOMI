@@ -1,4 +1,5 @@
 from operator import index
+from pickle import TRUE
 from tkinter.tix import AUTO
 from turtle import width
 import pandas as pd
@@ -55,6 +56,21 @@ app = hy.HydraApp(title='TROPOMINO2',
         navbar_theme=over_theme
     )
 
+
+##########################################################################################################################
+
+@app.addapp(is_home=True)
+def home():
+    my_expander1 = st.expander('Description', expanded=True)  
+    col1, col2, col3 = my_expander1.columns([1,7,1])
+    #col2.markdown("<h3 style='text-align: left; font-weight: bold '>Description:</h1>", unsafe_allow_html=True)
+    col2.markdown("<p style='text-align: justify;'>This website displays NO2 tropospheric vertical column amounts observed by TROPOMI over the continental USA, southern Canada and northern Mexico. Data shown are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Please visit our <b>Daily TROPOMI NO2</b> and <b>Seasonal TROPOMI NO2</b> pages for data aggregated over various time intervals.</p>", unsafe_allow_html=True)
+
+            
+    col2.text("")
+    col2.text("")
+
+    col2.image('./TROPOMI_homepage.png', use_column_width = True)
 
 ##########################################################################################################################
 
@@ -186,7 +202,7 @@ def DailyTROPOMINO2():
         col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
     #col12.markdown("<ul style='text-align: center'>'p' on the image represents one of the top 50 largest NOx-emitting power plants.", unsafe_allow_html=True)
     #col12.text("")
-    col12.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. 'p' on the image represents one of the top 50 largest NOx-emitting power plants. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 5 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
+    col12.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. 'p' on the image represents one of the top 50 largest NOx-emitting power plants. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
     col12.text("")
     
 
@@ -242,7 +258,8 @@ def DailyTROPOMINO2():
 #                 col12.markdown("<ul style='text-align: justify; font-size:25px'>Data not yet available.", unsafe_allow_html=True)
 #     col12.markdown("<ul style='text-align: center'>'p' on the image represents one of the top 50 largest NOx-emitting power plants.", unsafe_allow_html=True)
 #     col12.text("")
-#     col12.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 5 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
+#     col12.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3
+#  hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
 
 
 ##########################################################################################################################
@@ -261,13 +278,21 @@ def DailyTROPOMINO2():
         col13.markdown("")
 
         year_input = col12.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+
         if year_input in ['2019', '2020']:
             object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}")
+        
         else:
+            col14, col15, col16, col17 = my_expander1.columns([3,5.5,5.5,3])
+            col14.markdown("")
+            col14.markdown("")
+            col17.markdown("")
+            col17.markdown("")
+
             object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
@@ -276,8 +301,8 @@ def DailyTROPOMINO2():
             response = object.get()
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
-            images = [img_t, img_b]
-            col12.image(images, width = 730, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
+            col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}")
+            col16.image(img_b, use_column_width= True, caption=f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png")
 
     elif (seasonal_input=='Summer'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -294,45 +319,62 @@ def DailyTROPOMINO2():
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Jun-Aug) {year_input}")
         else:
-            object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
+            col14, col15, col16, col17 = my_expander1.columns([3,5.5,5.5,3])
+            col14.markdown("")
+            col14.markdown("")
+            col17.markdown("")
+            col17.markdown("")
+
+            object = bucket.Object(f"seasonal/JJA_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
             img_t = pil.Image.open(file_stream)
-            object = bucket.Object(f"seasonal/DJF_{year_input}_vs_baseline_TROPOMI_diff.png")
+            object = bucket.Object(f"seasonal/JJA_{year_input}_vs_baseline_TROPOMI_diff.png")
             response = object.get()
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
-            images = [img_t, img_b]
-            col12.image(images, width = 730, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
+            col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Jun-Aug) {year_input}")
+            col16.image(img_b, use_column_width= True, caption=f"JJA_{year_input}_vs_baseline_TROPOMI_diff.png")
 
     elif (seasonal_input=='Spring'):
-        col11, col12, col13 = my_expander1.columns([3,7,3])
+        col11, col12, col13 = my_expander1.columns([3,10,3])
         col11.markdown("")
         col11.markdown("")
         col13.markdown("")
         col13.markdown("")
 
+<<<<<<< HEAD
         year_input = col12.selectbox('Select Year:', ['2019', '2020', '2021'], key='year_input')
         if year_input in ['2019', '2020']:
+=======
+        year_input = col12.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+        if year_input in ['2019']:
+>>>>>>> test
             object = bucket.Object(f"seasonal/MAM_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Mar-May) {year_input}")
         else:
-            object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
+            col14, col15, col16, col17 = my_expander1.columns([3,5.5,5.5,3])
+            col14.markdown("")
+            col14.markdown("")
+            col17.markdown("")
+            col17.markdown("")
+
+            object = bucket.Object(f"seasonal/MAM_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
             img_t = pil.Image.open(file_stream)
-            object = bucket.Object(f"seasonal/DJF_{year_input}_vs_baseline_TROPOMI_diff.png")
+            object = bucket.Object(f"seasonal/MAM_{year_input}_vs_baseline_TROPOMI_diff.png")
             response = object.get()
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
-            images = [img_t, img_b]
-            col12.image(images, width = 730, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
+            col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Mar-May) {year_input}")
+            col16.image(img_b, use_column_width= True, caption=f"MAM_{year_input}_vs_baseline_TROPOMI_diff.png")
 
     elif (seasonal_input=='Fall'):
-        col11, col12, col13 = my_expander1.columns([3,8,3])
+        col11, col12, col13 = my_expander1.columns([3,10,3])
         col11.markdown("")
         col11.markdown("")
         col13.markdown("")
@@ -346,21 +388,45 @@ def DailyTROPOMINO2():
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Sep-Nov) {year_input}")
         else:
-            object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
+            col14, col15, col16, col17 = my_expander1.columns([3,5.5,5.5,3])
+            col14.markdown("")
+            col14.markdown("")
+            col17.markdown("")
+            col17.markdown("")
+
+            object = bucket.Object(f"seasonal/SON_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
             img_t = pil.Image.open(file_stream)
-            object = bucket.Object(f"seasonal/DJF_{year_input}_vs_baseline_TROPOMI_diff.png")
+            object = bucket.Object(f"seasonal/SON_{year_input}_vs_baseline_TROPOMI_diff.png")
             response = object.get()
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
             images = [img_t, img_b]
-            col12.image(images, width = 730, caption=[f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}", f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png"])
+            col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Sep-Nov) {year_input}")
+            col16.image(img_b, use_column_width= True, caption=f"SON_{year_input}_vs_baseline_TROPOMI_diff.png")
 
     #col12.markdown("<ul style='text-align: center'>'p' on the image represents one of the top 50 largest NOx-emitting power plants.", unsafe_allow_html=True)
     #col12.text("")
-    col12.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 5 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
+    col12.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
     col12.text("")
+
+##########################################################################################################################
+
+@app.addapp(title='Trends Over Time')
+def TrendsOverTime():
+
+    my_expander1 = st.expander('Trends Over Time', expanded=True)  
+    col1, col2, col3 = my_expander1.columns([1,7,1])
+    col2.text("")
+    col2.text("")
+
+    col2.image('./Lineplot_TROPOMI_cities_QA75.png', use_column_width = True)
+
+    col2.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
+    col2.text("")
+
+##########################################################################################################################
 
 @app.addapp(title='About')
 def About():
@@ -368,7 +434,7 @@ def About():
     col01, col02, col03 = my_expander3.columns([3,3,3])
     col03.image(img1, use_column_width=True)
     my_expander3.markdown("<h3 style='text-align: left; font-weight: bold '>More Information:</h1>", unsafe_allow_html=True)
-    my_expander3.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 5 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
+    my_expander3.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
     my_expander3.text("")
 
 app.run()
