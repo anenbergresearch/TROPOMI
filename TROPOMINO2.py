@@ -277,7 +277,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col12.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col12.selectbox('Select Year: (Spring 2020 and beyond have difference plots)', ['2019', '2020', '2021', '2022'], key='year_input')
 
         if year_input in ['2019', '2020']:
             object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
@@ -302,7 +302,7 @@ def DailyTROPOMINO2():
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
             col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}")
-            col16.image(img_b, use_column_width= True, caption=f"DJF_{year_input}_vs_baseline_TROPOMI_diff.png")
+            col16.image(img_b, use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
     elif (seasonal_input=='Summer'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -311,7 +311,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col12.selectbox('Select Year:', ['2018', '2019', '2020', '2021'], key='year_input')
+        year_input = col12.selectbox('Select Year: (Spring 2020 and beyond have difference plots)', ['2018', '2019', '2020', '2021'], key='year_input')
         if year_input in ['2018', '2019', '2020']:
             object = bucket.Object(f"seasonal/JJA_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -334,7 +334,7 @@ def DailyTROPOMINO2():
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
             col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Jun-Aug) {year_input}")
-            col16.image(img_b, use_column_width= True, caption=f"JJA_{year_input}_vs_baseline_TROPOMI_diff.png")
+            col16.image(img_b, use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
     elif (seasonal_input=='Spring'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -343,7 +343,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col12.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col12.selectbox('Select Year: (Spring 2020 and beyond have difference plots)', ['2019', '2020', '2021', '2022'], key='year_input')
         if year_input in ['2019']:
             object = bucket.Object(f"seasonal/MAM_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -366,7 +366,7 @@ def DailyTROPOMINO2():
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
             col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Mar-May) {year_input}")
-            col16.image(img_b, use_column_width= True, caption=f"MAM_{year_input}_vs_baseline_TROPOMI_diff.png")
+            col16.image(img_b, use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
     elif (seasonal_input=='Fall'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -375,7 +375,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col12.selectbox('Select Year:', ['2018', '2019', '2020', '2021'], key='year_input')
+        year_input = col12.selectbox('Select Year: (Spring 2020 and beyond have difference plots)', ['2018', '2019', '2020', '2021'], key='year_input')
         if year_input in ['2018', '2019', '2020']:
             object = bucket.Object(f"seasonal/SON_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -399,7 +399,7 @@ def DailyTROPOMINO2():
             img_b = pil.Image.open(file_stream)
             images = [img_t, img_b]
             col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Sep-Nov) {year_input}")
-            col16.image(img_b, use_column_width= True, caption=f"SON_{year_input}_vs_baseline_TROPOMI_diff.png")
+            col16.image(img_b, use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
     #col12.markdown("<ul style='text-align: center'>'p' on the image represents one of the top 50 largest NOx-emitting power plants.", unsafe_allow_html=True)
     #col12.text("")
