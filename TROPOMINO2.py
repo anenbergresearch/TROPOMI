@@ -277,7 +277,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col12.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col11.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022'], key='year_input')
 
         if year_input in ['2019', '2020']:
             object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
@@ -311,7 +311,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col12.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2018', '2019', '2020', '2021'], key='year_input')
+        year_input = col11.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2018', '2019', '2020', '2021'], key='year_input')
         if year_input in ['2018', '2019']:
             object = bucket.Object(f"seasonal/JJA_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -343,7 +343,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col12.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col11.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022'], key='year_input')
         if year_input in ['2019']:
             object = bucket.Object(f"seasonal/MAM_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -375,7 +375,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col12.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2018', '2019', '2020', '2021'], key='year_input')
+        year_input = col11.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2018', '2019', '2020', '2021'], key='year_input')
         if year_input in ['2018', '2019']:
             object = bucket.Object(f"seasonal/SON_{year_input}_TROPOMI_QA75.png")
             response = object.get()
