@@ -60,7 +60,7 @@ app = hy.HydraApp(title='TROPOMINO2',
 ##########################################################################################################################
 
 @app.addapp()
-def Home():
+def home():
     my_expander1 = st.expander('Description', expanded=True)  
     col1, col2, col3 = my_expander1.columns([1,7,1])
     #col2.markdown("<h3 style='text-align: left; font-weight: bold '>Description:</h1>", unsafe_allow_html=True)
