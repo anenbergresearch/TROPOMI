@@ -442,8 +442,8 @@ def About():
     col02.text("")
     col02.text("")
 
+    col02.text("")
     col1, col2, col3 = my_expander3.columns([1,7,1])
-    col2.text("")
     col2.text("")
     col2.image('./TROPOMI_homepage.png', use_column_width = True)
 
