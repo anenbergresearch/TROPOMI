@@ -59,7 +59,7 @@ app = hy.HydraApp(title='TROPOMINO2',
 
 ##########################################################################################################################
 
-@app.addapp(title='Homepage')
+""" @app.addapp(title='Homepage')
 def Home():
     my_expander1 = st.expander('Description', expanded=True)  
     col1, col2, col3 = my_expander1.columns([1,7,1])
@@ -70,7 +70,7 @@ def Home():
     col2.text("")
     col2.text("")
 
-    col2.image('./TROPOMI_homepage.png', use_column_width = True)
+    col2.image('./TROPOMI_homepage.png', use_column_width = True) """
 
 ##########################################################################################################################
 
