@@ -59,8 +59,9 @@ app = hy.HydraApp(title='TROPOMINO2',
 
 ##########################################################################################################################
 
-@app.addapp(title='Homepage')
-def Homepage():
+#@app.addapp(title='Homepage')
+@app.addapp(app=apps.HomeApp(title='Home'),is_home=True)
+def Home():
     my_expander1 = st.expander('Description', expanded=True)  
     col1, col2, col3 = my_expander1.columns([1,7,1])
     #col2.markdown("<h3 style='text-align: left; font-weight: bold '>Description:</h1>", unsafe_allow_html=True)
@@ -74,8 +75,7 @@ def Homepage():
 
 ##########################################################################################################################
 
-#@app.addapp(title='Daily TROPOMI NO2', is_home=True)
-@app.addapp(app=apps.HomeApp(title='Daily TROPOMI NO2'),is_home=True)
+@app.addapp(title='Daily TROPOMI NO2', is_home=True)
 def DailyTROPOMINO2():
     my_expander1 = st.expander('Daily TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
