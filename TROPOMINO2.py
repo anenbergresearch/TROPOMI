@@ -279,6 +279,12 @@ def DailyTROPOMINO2():
 
         year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022'], key='year_input')
 
+        col14, col15, col16, col17 = my_expander1.columns([0.5,9,9,0.5])
+        col14.markdown("")
+        col14.markdown("")
+        col17.markdown("")
+        col17.markdown("")
+
         if year_input in ['2019', '2020']:
             object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -287,12 +293,6 @@ def DailyTROPOMINO2():
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}")
         
         else:
-            col14, col15, col16, col17 = my_expander1.columns([0.5,9,9,0.5])
-            col14.markdown("")
-            col14.markdown("")
-            col17.markdown("")
-            col17.markdown("")
-
             object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
             response = object.get()
             file_stream = response['Body']
