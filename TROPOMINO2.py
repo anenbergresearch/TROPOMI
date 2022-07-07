@@ -1,7 +1,7 @@
 from operator import index
 from pickle import TRUE
 from tkinter.tix import AUTO
-from turtle import width
+from turtle import title, width
 import pandas as pd
 import numpy as np
 import PIL as pil
@@ -59,7 +59,7 @@ app = hy.HydraApp(title='TROPOMINO2',
 
 ##########################################################################################################################
 
-@app.addapp()
+@app.addapp(title='Home')
 def home():
     my_expander1 = st.expander('Description', expanded=True)  
     col1, col2, col3 = my_expander1.columns([1,7,1])
