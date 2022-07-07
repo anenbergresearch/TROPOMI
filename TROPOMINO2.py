@@ -59,8 +59,7 @@ app = hy.HydraApp(title='TROPOMINO2',
 
 ##########################################################################################################################
 
-#@app.addapp(title='Homepage')
-@app.addapp(app=apps.HomeApp(title='Home'),is_home=True)
+@app.addapp(title='Homepage')
 def Home():
     my_expander1 = st.expander('Description', expanded=True)  
     col1, col2, col3 = my_expander1.columns([1,7,1])
