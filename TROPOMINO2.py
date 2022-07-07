@@ -414,9 +414,9 @@ def DailyTROPOMINO2():
 def TrendsOverTime():
 
     my_expander1 = st.expander('Trends Over Time', expanded=True)
-    col01, col02, col03 = my_expander3.columns([3,3,3])
+    col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img1, use_column_width=True)
-    
+
     col1, col2, col3 = my_expander1.columns([1,7,1])
     col2.text("")
     col2.text("")
