@@ -74,7 +74,8 @@ def Homepage():
 
 ##########################################################################################################################
 
-@app.addapp(title='Daily TROPOMI NO2', is_home=True)
+#@app.addapp(title='Daily TROPOMI NO2', is_home=True)
+@app.addapp(app=apps.HomeApp(title='Daily TROPOMI NO2'),is_home=True)
 def DailyTROPOMINO2():
     my_expander1 = st.expander('Daily TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
