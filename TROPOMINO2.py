@@ -42,9 +42,9 @@ st.markdown("""
         """, unsafe_allow_html=True)
 
 ##########################################################################################################################
-img1 = pil.Image.open('img1.png')
+img01 = pil.Image.open('img01.png')
 #col01, col02, col03 = st.columns([2,4,2])
-#col02.image(img1, use_column_width=True)
+#col02.image(img01, use_column_width=True)
 
 
 over_theme = {'txc_inactive': '#000000'}
@@ -78,7 +78,7 @@ app = hy.HydraApp(title='TROPOMINO2',
 def DailyTROPOMINO2():
     my_expander1 = st.expander('Daily TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
-    col03.image(img1, use_column_width=True)
+    col03.image(img01, use_column_width=True)
     daily_input = col01.selectbox('Select Location:', ['U.S.A.','California','Mid Atlantic', 'Mid West', 'North East', 'South East', 'Texas'], key='daily_input')
     if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
         current = datetime.date.today()
@@ -289,7 +289,7 @@ def DailyTROPOMINO2():
 
 #     my_expander2 = st.expander('Monthly TROPOMI NO2', expanded=True)  
 #     col01, col02, col03 = my_expander2.columns([3,3,3])
-#     col03.image(img1, use_column_width=True)
+#     col03.image(img01, use_column_width=True)
 #     years = ['2019','2020','2021','2022']
 #     default = years.index(datetime.datetime.now().strftime("%Y"))
 #     year_input = col01.selectbox('Select Year:', years, key='year_input', index=default)
@@ -323,7 +323,7 @@ def DailyTROPOMINO2():
 def DailyTROPOMINO2():
     my_expander1 = st.expander('Seasonal TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
-    col03.image(img1, use_column_width=True)
+    col03.image(img01, use_column_width=True)
     seasonal_input = col01.selectbox('Select Season:', ['Winter', 'Spring', 'Summer', 'Fall'], key='seasonal_input')
     if (seasonal_input=='Winter'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -474,7 +474,7 @@ def TrendsOverTime():
 
     my_expander1 = st.expander('Trends Over Time', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
-    col03.image(img1, use_column_width=True)
+    col03.image(img01, use_column_width=True)
 
     col1, col2, col3 = my_expander1.columns([1,7,1])
     col2.text("")
@@ -501,7 +501,7 @@ def About():
     col02.text("")
     col02.text("")
 
-    col03.image(img1, use_column_width=True)
+    col03.image(img01, use_column_width=True)
     
     col02.text("")
     col02.text("")
