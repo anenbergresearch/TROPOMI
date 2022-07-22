@@ -88,7 +88,7 @@ def DailyTROPOMINO2():
 
     if (daily_input=='U.S.A.'):
         #col11, col12, col13 = my_expander1.columns([3,10,3])
-        col11, col12, col13, col14 = my_expander1.columns([3,5,5,3])
+        col11, col12, col13, col14 = my_expander1.columns([0.5,7.5,7.5,0.5])
         col11.markdown("")
         col11.markdown("")
         col14.markdown("")
@@ -99,16 +99,20 @@ def DailyTROPOMINO2():
         #    current = datetime.date.today() - datetime.timedelta(days=1)
         #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
 
-        object = bucket.Object(f"daily_conus/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png")
-        response = object.get()
-        file_stream = response['Body']
-        img = pil.Image.open(file_stream)
-        col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
-        col13.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time") # change image name
+        object1 = bucket.Object(f"daily_conus/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png")
+        object2 = bucket.Object(f"daily_diff/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png")
+        response1 = object1.get()
+        response2 = object2.get()
+        file_stream1 = response1['Body']
+        file_stream2 = response2['Body']
+        img1 = pil.Image.open(file_stream1)
+        img2 = pil.Image.open(file_stream2)
+        col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
 
     elif (daily_input=='California'):
         #col11, col12, col13 = my_expander1.columns([3,3,3])
-        col11, col12, col13, col14 = my_expander1.columns([3,5,5,3])
+        col11, col12, col13, col14 = my_expander1.columns([0.5,7.5,7.5,0.5])
         col11.markdown("")
         col11.markdown("")
         col14.markdown("")
@@ -120,16 +124,20 @@ def DailyTROPOMINO2():
         #    current = datetime.date.today() - datetime.timedelta(days=1)
         #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
 
-        object = bucket.Object(f"daily_california/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_CA_QA75.png")
-        response = object.get()
-        file_stream = response['Body']
-        img = pil.Image.open(file_stream)
-        col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
-        col13.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time") # change image name
+        object1 = bucket.Object(f"daily_california/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_CA_QA75.png")
+        object2 = bucket.Object(f"daily_diff/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png")
+        response1 = object1.get()
+        response2 = object2.get()
+        file_stream1 = response1['Body']
+        file_stream2 = response2['Body']
+        img1 = pil.Image.open(file_stream1)
+        img2 = pil.Image.open(file_stream2)
+        col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
 
     elif (daily_input=='Mid Atlantic'):
         #col11, col12, col13 = my_expander1.columns([3,7,3])
-        col11, col12, col13, col14 = my_expander1.columns([3,5,5,3])
+        col11, col12, col13, col14 = my_expander1.columns([0.5,7.5,7.5,0.5])
         col11.markdown("")
         col11.markdown("")
         col14.markdown("")
@@ -141,16 +149,20 @@ def DailyTROPOMINO2():
         #    current = datetime.date.today() - datetime.timedelta(days=1)
         #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
 
-        object = bucket.Object(f"daily_midAtl/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_midAtl_QA75.png")
-        response = object.get()
-        file_stream = response['Body']
-        img = pil.Image.open(file_stream)
-        col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
-        col13.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time") # change image name
+        object1 = bucket.Object(f"daily_midAtl/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_midAtl_QA75.png")
+        object2 = bucket.Object(f"daily_diff/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png")
+        response1 = object1.get()
+        response2 = object2.get()
+        file_stream1 = response1['Body']
+        file_stream2 = response2['Body']
+        img1 = pil.Image.open(file_stream1)
+        img2 = pil.Image.open(file_stream2)
+        col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
 
     elif (daily_input=='Mid West'):
         #col11, col12, col13 = my_expander1.columns([3,8,3])
-        col11, col12, col13, col14 = my_expander1.columns([3,5,5,3])
+        col11, col12, col13, col14 = my_expander1.columns([0.5,7.5,7.5,0.5])
         col11.markdown("")
         col11.markdown("")
         col14.markdown("")
@@ -171,7 +183,7 @@ def DailyTROPOMINO2():
 
     elif (daily_input=='North East'):
         #col11, col12, col13 = my_expander1.columns([3,8,3])
-        col11, col12, col13, col14 = my_expander1.columns([3,5,5,3])
+        col11, col12, col13, col14 = my_expander1.columns([0.5,7.5,7.5,0.5])
         col11.markdown("")
         col11.markdown("")
         col14.markdown("")
@@ -182,16 +194,19 @@ def DailyTROPOMINO2():
         #    current = datetime.date.today() - datetime.timedelta(days=1)
         #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
 
-        object = bucket.Object(f"daily_northeast/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_EUS_QA75.png")
-        response = object.get()
-        file_stream = response['Body']
-        img = pil.Image.open(file_stream)
-        col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
-        col13.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time") # change image name
-
+        object1 = bucket.Object(f"daily_northeast/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_EUS_QA75.png")
+        object2 = bucket.Object(f"daily_diff/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png")
+        response1 = object1.get()
+        response2 = object2.get()
+        file_stream1 = response1['Body']
+        file_stream2 = response2['Body']
+        img1 = pil.Image.open(file_stream1)
+        img2 = pil.Image.open(file_stream2)
+        col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
     elif (daily_input=='South East'):
         #col11, col12, col13 = my_expander1.columns([3,8,3])
-        col11, col12, col13, col14 = my_expander1.columns([3,5,5,3])
+        col11, col12, col13, col14 = my_expander1.columns([0.5,7.5,7.5,0.5])
         col11.markdown("")
         col11.markdown("")
         col14.markdown("")
@@ -203,16 +218,20 @@ def DailyTROPOMINO2():
         #    current = datetime.date.today() - datetime.timedelta(days=1)
         #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
 
-        object = bucket.Object(f"daily_southeast/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_SE_QA75.png")
-        response = object.get()
-        file_stream = response['Body']
-        img = pil.Image.open(file_stream)
-        col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
-        col13.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time") # change image name
+        object1 = bucket.Object(f"daily_southeast/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_SE_QA75.png")
+        object2 = bucket.Object(f"daily_diff/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png")
+        response1 = object1.get()
+        response2 = object2.get()
+        file_stream1 = response1['Body']
+        file_stream2 = response2['Body']
+        img1 = pil.Image.open(file_stream1)
+        img2 = pil.Image.open(file_stream2)
+        col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
 
     elif (daily_input=='Texas'):
         #col11, col12, col13 = my_expander1.columns([3,7,3])
-        col11, col12, col13, col14 = my_expander1.columns([3,5,5,3])
+        col11, col12, col13, col14 = my_expander1.columns([0.5,7.5,7.5,0.5])
         col11.markdown("")
         col11.markdown("")
         col14.markdown("")
@@ -224,17 +243,26 @@ def DailyTROPOMINO2():
         #    current = datetime.date.today() - datetime.timedelta(days=1)
         #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
 
-        object = bucket.Object(f"daily_texas/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_TX_QA75.png")
-        response = object.get()
-        file_stream = response['Body']
-        img = pil.Image.open(file_stream)
-        col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
-        col13.image(img, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time") # change image name
+        object1 = bucket.Object(f"daily_texas/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_TX_QA75.png")
+        object2 = bucket.Object(f"daily_diff/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png")
+        response1 = object1.get()
+        response2 = object2.get()
+        file_stream1 = response1['Body']
+        file_stream2 = response2['Body']
+        img1 = pil.Image.open(file_stream1)
+        img2 = pil.Image.open(file_stream2)
+        col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
 
     #col12.markdown("<ul style='text-align: center'>'p' on the image represents one of the top 50 largest NOx-emitting power plants.", unsafe_allow_html=True)
     #col12.text("")
-    col12.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. 'p' on the image represents one of the top 50 largest NOx-emitting power plants. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
-    col12.text("")
+    col001, col002, col003 = my_expander1.columns([3,10,3])
+    col001.markdown("")
+    col001.markdown("")
+    col003.markdown("")
+    col003.markdown("")
+    col002.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. 'p' on the image represents one of the top 50 largest NOx-emitting power plants. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
+    col002.text("")
 
 ##########################################################################################################################
 
