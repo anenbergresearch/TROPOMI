@@ -84,7 +84,7 @@ def DailyTROPOMINO2():
         current = datetime.date.today()
     else:
         current = datetime.date.today() - datetime.timedelta(days=1)
-    date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+    date = col01.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
 
     if (daily_input=='U.S.A.'):
         #col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -98,7 +98,7 @@ def DailyTROPOMINO2():
         #else:
         #    current = datetime.date.today() - datetime.timedelta(days=1)
         #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
-        
+
         object = bucket.Object(f"daily_conus/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png")
         response = object.get()
         file_stream = response['Body']
