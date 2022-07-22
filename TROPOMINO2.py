@@ -80,6 +80,12 @@ def DailyTROPOMINO2():
     col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img1, use_column_width=True)
     daily_input = col01.selectbox('Select Location:', ['U.S.A.','California','Mid Atlantic', 'Mid West', 'North East', 'South East', 'Texas'], key='daily_input')
+    if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
+        current = datetime.date.today()
+    else:
+        current = datetime.date.today() - datetime.timedelta(days=1)
+    date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+
     if (daily_input=='U.S.A.'):
         #col11, col12, col13 = my_expander1.columns([3,10,3])
         col11, col12, col13, col14 = my_expander1.columns([3,5,5,3])
@@ -87,11 +93,12 @@ def DailyTROPOMINO2():
         col11.markdown("")
         col14.markdown("")
         col14.markdown("")
-        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
-            current = datetime.date.today()
-        else:
-            current = datetime.date.today() - datetime.timedelta(days=1)
-        date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+        #if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
+        #    current = datetime.date.today()
+        #else:
+        #    current = datetime.date.today() - datetime.timedelta(days=1)
+        #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+        
         object = bucket.Object(f"daily_conus/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png")
         response = object.get()
         file_stream = response['Body']
@@ -107,11 +114,12 @@ def DailyTROPOMINO2():
         col14.markdown("")
         col14.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
-            current = datetime.date.today()
-        else:
-            current = datetime.date.today() - datetime.timedelta(days=1)
-        date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+        #if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
+        #    current = datetime.date.today()
+        #else:
+        #    current = datetime.date.today() - datetime.timedelta(days=1)
+        #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+
         object = bucket.Object(f"daily_california/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_CA_QA75.png")
         response = object.get()
         file_stream = response['Body']
@@ -127,11 +135,12 @@ def DailyTROPOMINO2():
         col14.markdown("")
         col14.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
-            current = datetime.date.today()
-        else:
-            current = datetime.date.today() - datetime.timedelta(days=1)
-        date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+        #if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
+        #    current = datetime.date.today()
+        #else:
+        #    current = datetime.date.today() - datetime.timedelta(days=1)
+        #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+
         object = bucket.Object(f"daily_midAtl/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_midAtl_QA75.png")
         response = object.get()
         file_stream = response['Body']
@@ -147,11 +156,12 @@ def DailyTROPOMINO2():
         col14.markdown("")
         col14.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
-            current = datetime.date.today()
-        else:
-            current = datetime.date.today() - datetime.timedelta(days=1)
-        date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+       #if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
+        #    current = datetime.date.today()
+        #else:
+        #    current = datetime.date.today() - datetime.timedelta(days=1)
+        #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+
         object = bucket.Object(f"daily_midwest/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_MW_QA75.png")
         response = object.get()
         file_stream = response['Body']
@@ -166,11 +176,12 @@ def DailyTROPOMINO2():
         col11.markdown("")
         col14.markdown("")
         col14.markdown("")
-        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
-            current = datetime.date.today()
-        else:
-            current = datetime.date.today() - datetime.timedelta(days=1)
-        date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+        #if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
+        #    current = datetime.date.today()
+        #else:
+        #    current = datetime.date.today() - datetime.timedelta(days=1)
+        #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+
         object = bucket.Object(f"daily_northeast/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_EUS_QA75.png")
         response = object.get()
         file_stream = response['Body']
@@ -186,11 +197,12 @@ def DailyTROPOMINO2():
         col14.markdown("")
         col14.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
-            current = datetime.date.today()
-        else:
-            current = datetime.date.today() - datetime.timedelta(days=1)
-        date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+        #if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
+        #    current = datetime.date.today()
+        #else:
+        #    current = datetime.date.today() - datetime.timedelta(days=1)
+        #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+
         object = bucket.Object(f"daily_southeast/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_SE_QA75.png")
         response = object.get()
         file_stream = response['Body']
@@ -206,11 +218,12 @@ def DailyTROPOMINO2():
         col14.markdown("")
         col14.markdown("")
 
-        if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
-            current = datetime.date.today()
-        else:
-            current = datetime.date.today() - datetime.timedelta(days=1)
-        date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+        #if datetime.datetime.now() > datetime.datetime.now().replace(hour=20, minute=30):
+        #    current = datetime.date.today()
+        #else:
+        #    current = datetime.date.today() - datetime.timedelta(days=1)
+        #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+
         object = bucket.Object(f"daily_texas/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_TX_QA75.png")
         response = object.get()
         file_stream = response['Body']
