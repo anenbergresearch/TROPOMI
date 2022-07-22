@@ -42,7 +42,7 @@ st.markdown("""
         """, unsafe_allow_html=True)
 
 ##########################################################################################################################
-img01 = pil.Image.open('img01.png')
+img01 = pil.Image.open('img1.png')
 #col01, col02, col03 = st.columns([2,4,2])
 #col02.image(img01, use_column_width=True)
 
