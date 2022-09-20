@@ -179,7 +179,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+        #date = col12.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
         object = bucket.Object(f"daily_texas/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_TX_QA75.png")
         response = object.get()
         file_stream = response['Body']
@@ -501,7 +501,6 @@ def DailyTROPOMINO2():
             response = object.get()
             file_stream = response['Body']
             img_b = pil.Image.open(file_stream)
-            images = [img_t, img_b]
             col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Sep-Nov) {year_input}")
             col16.image(img_b, use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
