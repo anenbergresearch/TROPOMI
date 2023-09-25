@@ -381,7 +381,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
 
         if year_input in ['2019', '2020']:
             object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
@@ -415,7 +415,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2018', '2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2018', '2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2018', '2019']:
             object = bucket.Object(f"seasonal/JJA_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -447,7 +447,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2019']:
             object = bucket.Object(f"seasonal/MAM_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -479,7 +479,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2018', '2019', '2020', '2021'], key='year_input')
+        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2018', '2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2018', '2019']:
             object = bucket.Object(f"seasonal/SON_{year_input}_TROPOMI_QA75.png")
             response = object.get()
@@ -534,7 +534,7 @@ def TrendsOverTime():
     img = pil.Image.open(file_stream)
     col2.image(img, use_column_width = True, caption=f"")
     col2.text("")
-    col2.markdown("TROPOMI NO2 averaged within a 10 km radius of the city center for each month. Different color lines correspond to different years. Bigger size of dot means more cloud-free scenes during that month. No dot means less than 5 cloud-free scenes in that month.")
+    col2.markdown("TROPOMI NO2 urban trends during summer averaged within a 30 km radius of the city center. Different color lines correspond to different years. Bigger size of dot means more cloud-free scenes during that month. No dot means less than 5 cloud-free scenes in that month.")
     col2.text("")
     col2.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.2 and 2.3.1 NO2 algorithms developed by <a href= 'https://amt.copernicus.org/articles/15/2037/2022/', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
     col2.text("")
