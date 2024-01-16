@@ -336,7 +336,7 @@ def DailyTROPOMINO2():
         year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
 
         if year_input in ['2019', '2020']:
-            object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
+            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
