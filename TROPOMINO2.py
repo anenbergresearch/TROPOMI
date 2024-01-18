@@ -320,12 +320,12 @@ def DailyTROPOMINO2():
 
 ##########################################################################################################################
 
-@app.addapp(title='Global TROPOMI NO2')
+@app.addapp(title='Global Annual TROPOMI NO2')
 def DailyTROPOMINO2():
-    my_expander1 = st.expander('Global TROPOMI NO2', expanded=True)
+    my_expander1 = st.expander('Seasonal TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img01, use_column_width=True)
-    seasonal_input = col01.selectbox('Select Time Period:', ['Annual','Winter', 'Spring', 'Summer', 'Fall'], key='seasonal_input')
+    seasonal_input = col01.selectbox('Select Season:', ['Winter', 'Spring', 'Summer', 'Fall','Annual'], key='seasonal_input')
 
 
     if (seasonal_input=='Annual'):
@@ -383,7 +383,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col01.selectbox('Select Year', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2019','2020', '2021', '2022', '2023']:
             object = bucket.Object(f"global/tropomi_no2_v24_JJA{year_input}_global_coarse.png")
             response = object.get()
@@ -415,7 +415,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2019','2020', '2021', '2022', '2023']:
             object = bucket.Object(f"global/tropomi_no2_v24_MAM{year_input}_global_coarse.png")
             response = object.get()
@@ -447,7 +447,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col01.selectbox('Select Year:', ['2018', '2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2018', '2019','2020', '2021', '2022', '2023']:
             object = bucket.Object(f"global/tropomi_no2_v24_SON{year_input}_global_coarse.png")
             response = object.get()
@@ -511,7 +511,7 @@ def TrendsOverTime():
 @app.addapp(title='Global Trends Over Time')
 def TrendsOverTime():
 
-    my_expander1 = st.expander('Global Trends Over Time', expanded=True)
+    my_expander1 = st.expander('Trends Over Time', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img01, use_column_width=True)
 
@@ -533,9 +533,9 @@ def TrendsOverTime():
 
 ##########################################################################################################################
 
-@app.addapp(title='City Zoom-ins')
+@app.addapp(title='About')
 def About():
-    my_expander3 = st.expander('Annual City Zoom-ins', expanded=True)
+    my_expander3 = st.expander('About', expanded=True)
     col01, col02, col03 = my_expander3.columns([3,3,3])
     
     my_expander3.markdown("<p style='text-align: justify;'>This website displays NO2 tropospheric vertical column amounts observed by TROPOMI over the continental USA, southern Canada and northern Mexico. Data shown are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.4 NO2 algorithms developed by <a href= 'https://sentinels.copernicus.eu/documents/247904/3541451/Sentinel-5P-Nitrogen-Dioxide-Level-2-Product-Readme-File', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Please visit our <b>Daily TROPOMI NO2</b> and <b>Seasonal TROPOMI NO2</b> pages for data aggregated over various time intervals.</p>", unsafe_allow_html=True)
