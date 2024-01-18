@@ -320,12 +320,12 @@ def DailyTROPOMINO2():
 
 ##########################################################################################################################
 
-@app.addapp(title='Global TROPOMI NO2')
+@app.addapp(title='Global Annual TROPOMI NO2')
 def DailyTROPOMINO2():
-    my_expander1 = st.expander('Global TROPOMI NO2', expanded=True)
+    my_expander1 = st.expander('Seasonal TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img01, use_column_width=True)
-    seasonal_input = col01.selectbox('Select Season:', ['Annual','Winter', 'Spring', 'Summer', 'Fall'], key='seasonal_input')
+    seasonal_input = col01.selectbox('Select Season:', ['Winter', 'Spring', 'Summer', 'Fall','Annual'], key='seasonal_input')
 
 
     if (seasonal_input=='Annual'):
@@ -342,7 +342,6 @@ def DailyTROPOMINO2():
         img = pil.Image.open(file_stream)
         col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input} Hotspots in {year_input}")
 
-
     if (seasonal_input=='Winter'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
         col11.markdown("")
@@ -350,7 +349,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
+        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
 
         if year_input in ['2019', '2020','2021', '2022', '2023']:
             object = bucket.Object(f"global/tropomi_no2_v24_DJF{year_input}_global_coarse.png")#(f"global/TROPOMI_{year_input}.png")
@@ -359,6 +358,23 @@ def DailyTROPOMINO2():
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}")
         
+        else:
+            col14, col15, col16, col17 = my_expander1.columns([0.5,9,9,0.5])
+            col14.markdown("")
+            col14.markdown("")
+            col17.markdown("")
+            col17.markdown("")
+
+            object = bucket.Object(f"global/tropomi_no2_v24_DJF{year_input}_global_coarse.png")
+            response = object.get()
+            file_stream = response['Body']
+            img_t = pil.Image.open(file_stream)
+            object = bucket.Object(f"seasonal/DJF_{year_input}_vs_baseline_TROPOMI_diff.png")
+            response = object.get()
+            file_stream = response['Body']
+            img_b = pil.Image.open(file_stream)
+            col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Dec-Feb) {year_input}")
+            col16.image(img_b, use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
     elif (seasonal_input=='Summer'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -367,13 +383,30 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col01.selectbox('Select Year', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2019','2020', '2021', '2022', '2023']:
             object = bucket.Object(f"global/tropomi_no2_v24_JJA{year_input}_global_coarse.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Jun-Aug) {year_input}")
+        else:
+            col14, col15, col16, col17 = my_expander1.columns([0.5,9,9,0.5])
+            col14.markdown("")
+            col14.markdown("")
+            col17.markdown("")
+            col17.markdown("")
+
+            object = bucket.Object(f"global/tropomi_no2_v24_JJA{year_input}_global_coarse.png")
+            response = object.get()
+            file_stream = response['Body']
+            img_t = pil.Image.open(file_stream)
+            object = bucket.Object(f"seasonal/JJA_{year_input}_vs_baseline_TROPOMI_diff.png")
+            response = object.get()
+            file_stream = response['Body']
+            img_b = pil.Image.open(file_stream)
+            col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Jun-Aug) {year_input}")
+            col16.image(img_b, use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
     elif (seasonal_input=='Spring'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -382,8 +415,8 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
-        if year_input in ['2019','2020', '2021', '2022']:
+        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
+        if year_input in ['2019','2020', '2021', '2022', '2023']:
             object = bucket.Object(f"global/tropomi_no2_v24_MAM{year_input}_global_coarse.png")
             response = object.get()
             file_stream = response['Body']
@@ -414,13 +447,30 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022'], key='year_input')
+        year_input = col01.selectbox('Select Year:', ['2018', '2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2018', '2019','2020', '2021', '2022', '2023']:
             object = bucket.Object(f"global/tropomi_no2_v24_SON{year_input}_global_coarse.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
             col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input}(Sep-Nov) {year_input}")
+        else:
+            col14, col15, col16, col17 = my_expander1.columns([0.5,9,9,0.5])
+            col14.markdown("")
+            col14.markdown("")
+            col17.markdown("")
+            col17.markdown("")
+
+            object = bucket.Object(f"seasonal/SON_{year_input}_TROPOMI_QA75.png")
+            response = object.get()
+            file_stream = response['Body']
+            img_t = pil.Image.open(file_stream)
+            object = bucket.Object(f"seasonal/SON_{year_input}_vs_baseline_TROPOMI_diff.png")
+            response = object.get()
+            file_stream = response['Body']
+            img_b = pil.Image.open(file_stream)
+            col15.image(img_t, use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Sep-Nov) {year_input}")
+            col16.image(img_b, use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
     
     col11, col12, col13 = my_expander1.columns([3,10,3])
