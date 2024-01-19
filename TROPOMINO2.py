@@ -320,15 +320,13 @@ def DailyTROPOMINO2():
 
 ##########################################################################################################################
 
-@app.addapp(title='Global Annual Annual TROPOMI NO2')
+@app.addapp(title='Global TROPOMI NO2')
 def DailyTROPOMINO2():
-    my_expander1 = st.expander('Seasonal TROPOMI NO2', expanded=True)
     my_expander1 = st.expander('Seasonal TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img01, use_column_width=True)
-    seasonal_input = col01.selectbox('Select Season:', ['Winter', 'Spring', 'Summer', 'Fall','Annual'], key='seasonal_input')
-    seasonal_input = col01.selectbox('Select Season:', ['Winter', 'Spring', 'Summer', 'Fall','Annual'], key='seasonal_input')
-
+    seasonal_input = col01.selectbox('Select Season:', ['Annual'], key='seasonal_input')
+    #seasonal_input = col01.selectbox('Select Season:', ['Winter', 'Spring', 'Summer', 'Fall','Annual'], key='seasonal_input')
 
     if (seasonal_input=='Annual'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
@@ -354,8 +352,8 @@ def DailyTROPOMINO2():
         year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
 
         if year_input in ['2019', '2020','2021', '2022', '2023']:
-            #object = bucket.Object(f"global/tropomi_no2_v24_DJF{year_input}_global_coarse.png")#(f"global/TROPOMI_{year_input}.png")
-            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
+            object = bucket.Object(f"global/tropomi_no2_v24_DJF{year_input}_global_coarse.png")#(f"global/TROPOMI_{year_input}.png")
+            #object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
@@ -388,8 +386,8 @@ def DailyTROPOMINO2():
 
         year_input = col01.selectbox('Select Year', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2019','2020', '2021', '2022', '2023']:
-            #object = bucket.Object(f"global/tropomi_no2_v24_JJA{year_input}_global_coarse.png")
-            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
+            object = bucket.Object(f"global/tropomi_no2_v24_JJA{year_input}_global_coarse.png")
+            #object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
@@ -421,8 +419,8 @@ def DailyTROPOMINO2():
 
         year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2019','2020', '2021', '2022', '2023']:
-            #object = bucket.Object(f"global/tropomi_no2_v24_MAM{year_input}_global_coarse.png")
-            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
+            object = bucket.Object(f"global/tropomi_no2_v24_MAM{year_input}_global_coarse.png")
+            #object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
@@ -454,8 +452,8 @@ def DailyTROPOMINO2():
 
         year_input = col01.selectbox('Select Year:', ['2018', '2018', '2019', '2020', '2021', '2022', '2023', '2023'], key='year_input')
         if year_input in ['2018', '2019','2020', '2021', '2022', '2023']:
-            #object = bucket.Object(f"global/tropomi_no2_v24_SON{year_input}_global_coarse.png")
-            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
+            object = bucket.Object(f"global/tropomi_no2_v24_SON{year_input}_global_coarse.png")
+            #object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
@@ -524,9 +522,9 @@ def TrendsOverTime():
     col1, col2, col3 = my_expander1.columns([1,7,1])
     col2.text("")
     col2.text("")
-    object = bucket.Object(f"global/TROPOMI_2019.png")
+    #object = bucket.Object(f"global/TROPOMI_2019.png")
 
-    #object = bucket.Object(f"global/global_difference.png")
+    object = bucket.Object(f"global/global_difference.png")
     response = object.get()
     file_stream = response['Body']
     img = pil.Image.open(file_stream)
@@ -546,7 +544,6 @@ def About():
     col01, col02, col03 = my_expander3.columns([3,3,3])
     
     my_expander3.markdown("<p style='text-align: justify;'>This website displays NO2 tropospheric vertical column amounts observed by TROPOMI over the continental USA, southern Canada and northern Mexico. Data shown are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. Data shown here are from the Version 2.4 NO2 algorithms developed by <a href= 'https://sentinels.copernicus.eu/documents/247904/3541451/Sentinel-5P-Nitrogen-Dioxide-Level-2-Product-Readme-File', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Please visit our <b>Daily TROPOMI NO2</b> and <b>Seasonal TROPOMI NO2</b> pages for data aggregated over various time intervals.</p>", unsafe_allow_html=True)
-    x
     col02.text("")
     col02.text("")
 
