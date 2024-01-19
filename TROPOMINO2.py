@@ -354,7 +354,8 @@ def DailyTROPOMINO2():
         year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
 
         if year_input in ['2019', '2020','2021', '2022', '2023']:
-            object = bucket.Object(f"global/tropomi_no2_v24_DJF{year_input}_global_coarse.png")#(f"global/TROPOMI_{year_input}.png")
+            #object = bucket.Object(f"global/tropomi_no2_v24_DJF{year_input}_global_coarse.png")#(f"global/TROPOMI_{year_input}.png")
+            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
@@ -387,7 +388,8 @@ def DailyTROPOMINO2():
 
         year_input = col01.selectbox('Select Year', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2019','2020', '2021', '2022', '2023']:
-            object = bucket.Object(f"global/tropomi_no2_v24_JJA{year_input}_global_coarse.png")
+            #object = bucket.Object(f"global/tropomi_no2_v24_JJA{year_input}_global_coarse.png")
+            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
@@ -419,7 +421,8 @@ def DailyTROPOMINO2():
 
         year_input = col01.selectbox('Select Year:', ['2019', '2020', '2021', '2022', '2023'], key='year_input')
         if year_input in ['2019','2020', '2021', '2022', '2023']:
-            object = bucket.Object(f"global/tropomi_no2_v24_MAM{year_input}_global_coarse.png")
+            #object = bucket.Object(f"global/tropomi_no2_v24_MAM{year_input}_global_coarse.png")
+            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
@@ -451,7 +454,8 @@ def DailyTROPOMINO2():
 
         year_input = col01.selectbox('Select Year:', ['2018', '2018', '2019', '2020', '2021', '2022', '2023', '2023'], key='year_input')
         if year_input in ['2018', '2019','2020', '2021', '2022', '2023']:
-            object = bucket.Object(f"global/tropomi_no2_v24_SON{year_input}_global_coarse.png")
+            #object = bucket.Object(f"global/tropomi_no2_v24_SON{year_input}_global_coarse.png")
+            object = bucket.Object(f"global/TROPOMI_{year_input}.png")
             response = object.get()
             file_stream = response['Body']
             img = pil.Image.open(file_stream)
@@ -520,8 +524,9 @@ def TrendsOverTime():
     col1, col2, col3 = my_expander1.columns([1,7,1])
     col2.text("")
     col2.text("")
+    object = bucket.Object(f"global/TROPOMI_2019.png")
 
-    object = bucket.Object(f"global/global_difference.png")
+    #object = bucket.Object(f"global/global_difference.png")
     response = object.get()
     file_stream = response['Body']
     img = pil.Image.open(file_stream)
