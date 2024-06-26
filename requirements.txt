@@ -1,9 +1,9 @@
-pandas
-hydralit
+pandas==2.2.2
+hydralit==1.0.14
 numpy==1.26.4
 streamlit==1.7.0
-plotly
-dropbox
+plotly==5.22.0
+dropbox==12.0.2
 click==8
 boto3==1.22.13
 pip==22.1.2
