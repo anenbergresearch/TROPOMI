@@ -1,6 +1,6 @@
 pandas
 hydralit
-numpy
+numpy==1.26.4
 streamlit==1.7.0
 plotly
 dropbox
