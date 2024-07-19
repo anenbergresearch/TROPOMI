@@ -63,7 +63,7 @@ def DailyTROPOMINO2():
     col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img01, use_column_width=True)
     daily_input = col01.selectbox('Select Location:', ['U.S.A.','California','Mid Atlantic', 'Mid West', 'North East', 'South East', 'Texas'], key='daily_input')
-    if datetime.datetime.now() > datetime.datetime.now().replace(hour=15, minute=30):
+    if datetime.datetime.now() > datetime.datetime.now().replace(hour=23, minute=30):
         current = datetime.date.today()
     else:
         current = datetime.date.today() - datetime.timedelta(days=1)
