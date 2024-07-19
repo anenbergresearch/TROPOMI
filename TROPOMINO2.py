@@ -23,7 +23,7 @@ s3 = boto3.resource(
 bucket = s3.Bucket('tropomino2')
 
 
-st.set_page_config(page_title="TROPOMI NO2", layout= "wide")
+st.set_page_config(page_title="TROPOMI NO2 2024", layout= "wide")
 st.markdown("""
         <style>
                .css-18e3th9 {
