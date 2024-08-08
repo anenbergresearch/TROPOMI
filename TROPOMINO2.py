@@ -68,7 +68,7 @@ def DailyTROPOMINO2():
         current = datetime.date.today()
     else:
         current = datetime.date.today() - datetime.timedelta(days=1)
-    date = col01.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2022,1,4))
+    date = col01.date_input("Enter Date:", current, max_value=current, min_value = datetime.date(2024,1,1))
 
     if (daily_input=='U.S.A.'):
         col11, col12, col13, col14 = my_expander1.columns([0.5,7.5,7.5,0.5])
@@ -168,7 +168,7 @@ def DailyTROPOMINO2():
     col001.markdown("")
     col003.markdown("")
     col003.markdown("")
-    col002.markdown("<ul style='text-align: justify'>The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. 'p' on the image represents one of the top 50 largest NOx-emitting power plants. Data shown here are from the Version 2.4 NO2 algorithm developed by <a href= 'https://sentinels.copernicus.eu/documents/247904/3541451/Sentinel-5P-Nitrogen-Dioxide-Level-2-Product-Readme-File', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
+    col002.markdown("<ul style='text-align: justify'>Images pre-dating January 1, 2024 can be found <a href= 'https://gwu.box.com/s/sir2kp9kl6tn1y40yzfig7b9x8acg0kd', target='_blank'>here</a>. The <a href= 'https://tropomino2.us', target='_blank'>tropomino2.us</a> web site is maintained by the <a href= 'https://blogs.gwu.edu/sanenberg/', target='_blank'>Air Climate and Health Lab</a> at the Milken Institute School of Public Health at George Washington University, and is not directly affiliated with Tropomi Science Team. Data shown on the website are tropospheric vertical column amounts, are filtered to show measurements with a quality assurance flag exceeding 0.75, and are re-gridded using a methodology described in <a href= 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020EF001665', target='_blank'>Goldberg et al. 2021</a>. Daily images are from the near-real-time (NRT) product and the monthly data are from the offline (OFFL) product. 'p' on the image represents one of the top 50 largest NOx-emitting power plants. Data shown here are from the Version 2.4 NO2 algorithm developed by <a href= 'https://sentinels.copernicus.eu/documents/247904/3541451/Sentinel-5P-Nitrogen-Dioxide-Level-2-Product-Readme-File', target='_blank'>KNMI</a>. NRT data are available on this website approximately 3 hours after the measurement. Tropomi NO2 can be downloaded from: <a href= 'http://www.tropomi.eu/data-products/nitrogen-dioxide', target='_blank'>http://www.tropomi.eu/data-products/nitrogen-dioxide</a>", unsafe_allow_html=True)
     col002.text("")
 
 
