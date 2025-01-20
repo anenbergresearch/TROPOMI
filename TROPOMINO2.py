@@ -57,7 +57,7 @@ app = hy.HydraApp(title='TROPOMINO2',
 
 ##########################################################################################################################
 
-@app.addapp(title='Daily TROPOMI NO2')
+@app.addapp(title='Daily TROPOMI NO2', is_home=True)
 def DailyTROPOMINO2():
     my_expander1 = st.expander('Daily TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
@@ -545,7 +545,7 @@ def TrendsOverTime():
 
 ##########################################################################################################################
 
-@app.addapp(title='Annual City Zoom-ins', is_home=True)
+@app.addapp(title='Annual City Zoom-ins')
 def About():
     my_expander3 = st.expander('About', expanded=True)
     col01, col02, col03 = my_expander3.columns([3,3,3])
