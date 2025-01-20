@@ -62,7 +62,8 @@ def DailyTROPOMINO2():
     my_expander1 = st.expander('Daily TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img01, use_column_width=True)
-    daily_input = col01.selectbox('Select Location:', ['U.S.A.','California','Mid Atlantic', 'Mid West', 'North East', 'South East', 'Texas'], key='daily_input')
+    #daily_input = col01.selectbox('Select Location:', ['U.S.A.','California','Mid Atlantic', 'Mid West', 'North East', 'South East', 'Texas'], key='daily_input')
+    daily_input = col01.selectbox('Select Location:', ['U.S.A.'], key='daily_input')
     est_tz = timezone("EST")
     if datetime.datetime.now().astimezone(est_tz) > datetime.datetime.now().astimezone(est_tz).replace(hour=22, minute=30):
         current = datetime.date.today()
@@ -78,16 +79,18 @@ def DailyTROPOMINO2():
         col14.markdown("")
 
 
-        object1 = bucket.Object(f"daily_conus/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png")
-        object2 = bucket.Object(f"daily_diff/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png")
-        response1 = object1.get()
-        response2 = object2.get()
-        file_stream1 = response1['Body']
-        file_stream2 = response2['Body']
-        img1 = pil.Image.open(file_stream1)
-        img2 = pil.Image.open(file_stream2)
-        col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
-        col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
+        #object1 = bucket.Object(f"daily_conus/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png")
+        #object2 = bucket.Object(f"daily_diff/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png")
+        #response1 = object1.get()
+        #response2 = object2.get()
+        #file_stream1 = response1['Body']
+        #file_stream2 = response2['Body']
+        #img1 = pil.Image.open(file_stream1)
+        #img2 = pil.Image.open(file_stream2)
+        #col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        #col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
+        col12.image(f'./daily_data/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png', use_column_width = True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        col13.image(f'./daily_data/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png', use_column_width = True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
 
     elif (daily_input=='California'):
         col11, col12, col13 = my_expander1.columns([3,3,3])
