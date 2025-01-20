@@ -89,8 +89,8 @@ def DailyTROPOMINO2():
         #img2 = pil.Image.open(file_stream2)
         #col12.image(img1, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
         #col13.image(img2, use_column_width= True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
-        col12.image(f'./daily_data/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png', use_column_width = True)
-        col13.image(f'./daily_data/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png', use_column_width = True)
+        col12.image(f"./daily_data/TROPOMI_{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_QA75.png", use_column_width = True, caption = f"TROPOMI NO2 {daily_input} {date} 13:30 Local Time")
+        col13.image(f"./daily_data/{date.strftime('%m')}{date.strftime('%d')}{date.strftime('%Y')}_vs_baseline_TROPOMI_ratio.png", use_column_width = True, caption = f"TROPOMI NO2 {daily_input} {date} versus Baseline Ratio")
 
     elif (daily_input=='California'):
         col11, col12, col13 = my_expander1.columns([3,3,3])
