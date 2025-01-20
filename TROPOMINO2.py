@@ -342,7 +342,8 @@ def DailyTROPOMINO2():
         #file_stream = response['Body']
         #img = pil.Image.open(file_stream)
         #col12.image(img, use_column_width= True, caption = f"TROPOMI NO2 {seasonal_input} Hotspots in {year_input}")
-        col12.image('./TROPOMI_{year_input}.png', use_column_width = True)
+        #col12.image('./TROPOMI_{year_input}.png', use_column_width = True)
+        col12.image('./TROPOMI_2023.png', use_column_width = True)
         
     if (seasonal_input=='Winter'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
