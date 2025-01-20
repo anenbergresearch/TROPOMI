@@ -500,11 +500,13 @@ def TrendsOverTime():
     col2.text("")
     col2.text("")
 
-    object = bucket.Object(f"monthly/Lineplot_TROPOMI_cities_QA75.png")
-    response = object.get()
-    file_stream = response['Body']
-    img = pil.Image.open(file_stream)
-    col2.image(img, use_column_width = True, caption=f"")
+    #object = bucket.Object(f"monthly/Lineplot_TROPOMI_cities_QA75.png")
+    #response = object.get()
+    #file_stream = response['Body']
+    #img = pil.Image.open(file_stream)
+    #col2.image(img, use_column_width = True, caption=f"")
+    col2.image('./Lineplot_TROPOMI_cities_QA75.png', use_column_width = True)
+    
     col2.text("")
     col2.markdown("TROPOMI NO2 urban trends during summer averaged within a 30 km radius of the city center. Bigger size of dot means more cloud-free scenes during that month.")
     col2.text("")
