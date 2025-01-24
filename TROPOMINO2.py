@@ -323,7 +323,7 @@ def DailyTROPOMINO2():
             col15.image(f"./seasonal/SON_{year_input}_TROPOMI_QA75.png", use_column_width= True, caption=f"TROPOMI NO2 {seasonal_input}(Sep-Nov) {year_input}")
             col16.image(f"./seasonal/SON_{year_input}_vs_baseline_TROPOMI_diff.png", use_column_width= True, caption=f"Difference between selected timeframe and baseline period")
 
-      elif (seasonal_input=='Fall'):
+    elif (seasonal_input=='Annual'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
         col11.markdown("")
         col11.markdown("")
