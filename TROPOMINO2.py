@@ -182,7 +182,7 @@ def DailyTROPOMINO2():
     my_expander1 = st.expander('Seasonal TROPOMI NO2', expanded=True)
     col01, col02, col03 = my_expander1.columns([3,3,3])
     col03.image(img01, use_column_width=True)
-    seasonal_input = col01.selectbox('Select Season:', ['Spring', 'Summer', 'Fall', 'Winter'], key='seasonal_input')
+    seasonal_input = col01.selectbox('Select Season:', ['Summer', 'Fall', 'Winter', 'Spring'], key='seasonal_input')
     if (seasonal_input=='Winter'):
         col11, col12, col13 = my_expander1.columns([3,10,3])
         col11.markdown("")
@@ -190,7 +190,7 @@ def DailyTROPOMINO2():
         col13.markdown("")
         col13.markdown("")
 
-        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2020', '2021', '2022', '2023', '2024'], key='year_input')
+        year_input = col01.selectbox('Select Year (Spring 2020 and beyond have difference plots):', ['2024', '2020', '2021', '2022', '2023'], key='year_input')
 
         if year_input in ['2019', '2020']:
             #object = bucket.Object(f"seasonal/DJF_{year_input}_TROPOMI_QA75.png")
